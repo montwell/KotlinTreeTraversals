@@ -19,6 +19,15 @@ fun main() {
         println(it)
     }
 
+    println("\nFind 3")
+    var found = false
+    BinaryNode.traversePostOrder(rootOfBinaryTestTree) { value ->
+        if(value == 3) {
+            found = true
+        }
+    }
+    println("Found 3: $found")
+
     val rootOfNAryTestTree = rootOfNAryTestTree()
 
     println("\nDepth First")
@@ -36,11 +45,9 @@ fun main() {
     var found9 = false
 
     Node.traverseBreadthFirst(rootOfNAryTestTree) {
-        if(it == 3) {
-            found3 = true
-        }
-        if(it == 9) {
-            found9 = true
+        when(it) {
+            3 -> found3 = true
+            9 -> found9 = true
         }
     }
     println("found3 = $found3, found9 = $found9")
